@@ -14,8 +14,8 @@ The ideal output voltage is approximately:
 Vout/Vin =D
 
 where:
-Vin = Input DC voltage
-Vout = Output voltage
+Vin = Input DC voltage, 
+Vout = Output voltage, 
 D = Duty Cycle
 
 In the **closed-loop configuration**, the output voltage is continuously sensed and compared with the desired reference. The feedback signal is used to control the PWM duty cycle and maintain a regulated output.
@@ -50,8 +50,7 @@ The MOSFET acts as the main switching device. The inductor stores and transfers 
 - Input/Output Connectors
 <img width="1295" height="802" alt="Screenshot 2026-08-21 233110" src="https://github.com/user-attachments/assets/a9520151-6e9b-4c3b-a230-82289be4338f" />
 
-<!-- Add image here: Buck Main Circuit --><img width="1295" height="802" alt="Screenshot 2026-08-21 233110" src="https://github.com/user-attachments/assets/1e1073c9-8e71-4206-a4e0-a38811947bd0" />
-
+<!-- Add image here: Buck Main Circuit -->
 
 ---
 
