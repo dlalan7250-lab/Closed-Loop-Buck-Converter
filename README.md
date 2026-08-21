@@ -1,6 +1,6 @@
 # 🔋 Closed-Loop DC-DC Buck Converter with PCB
 
-A hardware implementation of a **closed-loop DC-DC Buck Converter** designed and developed as part of the Power Electronics Laboratory at IIT Guwahati.
+A hardware implementation of a **closed-loop DC-DC Buck Converter** designed and developed as a design project at IIT Guwahati under Sabri Nath Mam.
 
 The project converts a higher DC input voltage into a regulated lower DC output voltage using **PWM control and feedback voltage sensing**. The complete system was designed, assembled and implemented on a custom PCB.
 
