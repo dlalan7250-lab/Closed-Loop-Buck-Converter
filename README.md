@@ -12,9 +12,7 @@ A **Buck Converter** is a DC-DC power converter used to step down DC voltage.
 
 The ideal output voltage is approximately:
 
-\[
-V_{out} = D \times V_{in}
-\]
+ \(V_{out} = D \times V_{in}\)
 
 where:
 
