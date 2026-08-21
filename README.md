@@ -11,14 +11,12 @@ The project converts a higher DC input voltage into a regulated lower DC output 
 A **Buck Converter** is a DC-DC power converter used to step down DC voltage.
 
 The ideal output voltage is approximately:
-
- \(V_{out} = D \times V_{in}\)
+Vout/Vin =D
 
 where:
-
-- \(V_{in}\) = Input DC voltage
-- \(V_{out}\) = Output voltage
-- \(D\) = Duty Cycle
+Vin = Input DC voltage
+Vout = Output voltage
+D = Duty Cycle
 
 In the **closed-loop configuration**, the output voltage is continuously sensed and compared with the desired reference. The feedback signal is used to control the PWM duty cycle and maintain a regulated output.
 
@@ -32,11 +30,6 @@ The converter operates through the following stages:
 
 The output voltage is sensed using a resistor-divider network and fed to the feedback/control circuit. The controller adjusts the PWM signal according to the output voltage, providing closed-loop regulation.
 
-**Basic control loop:**
-
-`Output Voltage → Voltage Sensing → Feedback → PWM Control → MOSFET → Buck Converter`
-
-<!-- Add image here: Overall/Block diagram of the closed-loop Buck Converter -->
 
 ---
 
@@ -55,8 +48,10 @@ The MOSFET acts as the main switching device. The inductor stores and transfers 
 - Resistors
 - Heat Sink
 - Input/Output Connectors
+<img width="1295" height="802" alt="Screenshot 2026-08-21 233110" src="https://github.com/user-attachments/assets/a9520151-6e9b-4c3b-a230-82289be4338f" />
 
-<!-- Add image here: Buck Main Circuit -->
+<!-- Add image here: Buck Main Circuit --><img width="1295" height="802" alt="Screenshot 2026-08-21 233110" src="https://github.com/user-attachments/assets/1e1073c9-8e71-4206-a4e0-a38811947bd0" />
+
 
 ---
 
@@ -65,6 +60,7 @@ The MOSFET acts as the main switching device. The inductor stores and transfers 
 The output voltage is measured using a **resistor-divider network**. The sensed voltage is scaled down and provided to the feedback/control section.
 
 The feedback circuit continuously monitors the output and helps maintain the required output voltage by controlling the switching duty cycle.
+<img width="1297" height="790" alt="Screenshot 2026-08-21 233125" src="https://github.com/user-attachments/assets/ae8177ec-9d82-4520-9545-52b62492e755" />
 
 <!-- Add image here: Output Voltage Sensing Circuit -->
 
@@ -76,6 +72,8 @@ The gate-driver section provides the required gate-driving signal for the power 
 
 It provides electrical isolation and suitable drive conditions between the PWM control signal and the MOSFET gate, allowing reliable high-frequency switching.
 
+<img width="1307" height="727" alt="Screenshot 2026-08-21 233151" src="https://github.com/user-attachments/assets/dbb0eb23-3c4e-481b-bb46-67885fd8cef0" />
+
 <!-- Add image here: Gate Driver Circuit -->
 
 ---
@@ -85,6 +83,9 @@ It provides electrical isolation and suitable drive conditions between the PWM c
 The complete Buck Converter hardware was implemented on a **custom-designed PCB**.
 
 The PCB layout includes the power stage, switching device, inductor, filtering components, sensing section, driver circuit and required connectors. Proper routing was used for the power and control sections.
+<img width="607" height="623" alt="Screenshot 2026-08-22 000133" src="https://github.com/user-attachments/assets/8632914a-1c0c-49d3-bebc-4e229d61953f" />
+
+
 
 <!-- Add image here: PCB Design / PCB Layout -->
 
@@ -95,6 +96,8 @@ The PCB layout includes the power stage, switching device, inductor, filtering c
 The designed circuit was physically assembled and tested as a hardware prototype.
 
 The final setup integrates the **power stage, feedback sensing, gate driver and PCB**, forming a complete closed-loop Buck Converter system.
+
+<img width="4624" height="3472" alt="IMG_20260424_091314" src="https://github.com/user-attachments/assets/b4ede9aa-3071-4755-8324-92a9aed39bda" />
 
 <!-- Add image here: Final Hardware / PCB Photograph -->
 
@@ -112,24 +115,6 @@ The final setup integrates the **power stage, feedback sensing, gate driver and 
 | Optocoupler | Signal isolation |
 | Heat Sink | MOSFET thermal management |
 | Connectors | Input, output and signal connections |
-
----
-
-## 📐 Key Formula
-
-For an ideal Buck Converter:
-
-\[
-\boxed{V_{out}=D\,V_{in}}
-\]
-
-Therefore,
-
-\[
-\boxed{D=\frac{V_{out}}{V_{in}}}
-\]
-
-where \(D\) represents the PWM duty cycle.
 
 ---
 
