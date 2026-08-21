@@ -1,82 +1,144 @@
-🔋 Closed-Loop DC-DC Buck Converter with PCB
-Introduction
+# 🔋 Closed-Loop DC-DC Buck Converter with PCB
 
-This project presents the design and hardware implementation of a closed-loop DC-DC Buck Converter developed as part of a Power Electronics project at IIT Guwahati.
+A hardware implementation of a **closed-loop DC-DC Buck Converter** designed and developed as part of the Power Electronics Laboratory at IIT Guwahati.
 
-The converter is designed to step down a DC input voltage to a regulated lower output voltage using a feedback-based closed-loop control system. The hardware implementation includes the main buck converter circuit, output-voltage sensing circuit, gate-driver circuit, and custom PCB design.
+The project converts a higher DC input voltage into a regulated lower DC output voltage using **PWM control and feedback voltage sensing**. The complete system was designed, assembled and implemented on a custom PCB.
 
-The feedback circuit continuously senses the output voltage and adjusts the switching control of the MOSFET to maintain a stable output voltage under changing operating conditions.
+---
 
-The project covers the complete hardware development process, from circuit design and PCB layout to hardware testing and demonstration.
+## ⚡ What is a Buck Converter?
 
-⚡ Buck Converter – Main Power Circuit
+A **Buck Converter** is a DC-DC power converter used to step down DC voltage.
 
-The Buck Converter Main Circuit forms the core power stage of the project. It is designed to step down the input DC voltage to a lower regulated DC voltage using high-frequency MOSFET switching.
+The ideal output voltage is approximately:
 
-🔧 Key Components & Functions
-🔹 MOSFET (IRF540NPBF) — Acts as the main high-speed switching device.
-🔹 Freewheeling Diode (D1) — Provides a current path when the MOSFET is OFF.
-🔹 Inductor (104 µH) — Stores and releases energy to maintain continuous output current.
-🔹 Output Capacitors (C4, C5) — Reduce output-voltage ripple and provide a smoother DC output.
-🔹 Gate Resistor (R3) — Connected to the MOSFET gate for proper gate-drive operation.
-🔹 Input Capacitor (C1) — Helps reduce input-side voltage fluctuations.
-🔹 Voltage Divider (R4, R5, R6) — Used for output-voltage sensing and feedback.
-🔹 Heat Sinks — Provided for thermal management of the power semiconductor devices.
-🔹 Connectors — Separate terminals are provided for input, output, ground, and gate-signal connections.
-⚙️ Working Principle
+\[
+V_{out} = D \times V_{in}
+\]
 
-The MOSFET is switched ON and OFF at high frequency. During the ON state, energy is transferred from the input source to the inductor and load. During the OFF state, the inductor maintains the load current through the freewheeling diode.
+where:
 
-The inductor and capacitors smooth the switched waveform, producing a lower DC output voltage. The sensed output voltage can then be used by the feedback circuit to regulate the converter.
+- \(V_{in}\) = Input DC voltage
+- \(V_{out}\) = Output voltage
+- \(D\) = Duty Cycle
 
-<img width="1517" height="790" alt="Screenshot 2026-08-21 231745" src="https://github.com/user-attachments/assets/cf7f61a1-6173-43d9-889c-2edaa792f9de" />
+In the **closed-loop configuration**, the output voltage is continuously sensed and compared with the desired reference. The feedback signal is used to control the PWM duty cycle and maintain a regulated output.
 
+---
 
-## 🖥️ PCB Design
+## 🔄 Working Principle
 
-The PCB was designed to achieve a **compact, organized, and reliable hardware implementation** of the closed-loop Buck Converter.
+The converter operates through the following stages:
 
-✨ **Key Design Highlights:**
+**DC Input → MOSFET Switching → Inductor → Output Filter → Load**
 
-* 🔹 **Integrated Power Stage** — MOSFET, diode, inductor and capacitors arranged on a single PCB.
-* 🔹 **Gate Driver Section** — Dedicated area for driving the power MOSFET.
-* 🔹 **Voltage Sensing** — Feedback/sensing circuitry incorporated for closed-loop regulation.
-* 🔹 **Power Routing** — Suitable PCB tracks provided for the power-current path.
-* 🔹 **Organized Layout** — Components strategically placed for clean and practical connections.
-* 🔹 **External Connections** — Input, output and control/sensing terminals provided for testing.
-* 🔹 **Hardware Ready** — The fabricated PCB was used for practical testing and demonstration.
+The output voltage is sensed using a resistor-divider network and fed to the feedback/control circuit. The controller adjusts the PWM signal according to the output voltage, providing closed-loop regulation.
 
-### 📐 PCB Layout
+**Basic control loop:**
 
-*The PCB layout of the designed Closed-Loop Buck Converter is shown below.*
-<img width="607" height="623" alt="Screenshot 2026-08-22 000133" src="https://github.com/user-attachments/assets/8e885557-3f27-4ad1-8de0-b431813e942b" />
+`Output Voltage → Voltage Sensing → Feedback → PWM Control → MOSFET → Buck Converter`
 
-## 🎯 Output Voltage Sensing & Feedback Circuit
+<!-- Add image here: Overall/Block diagram of the closed-loop Buck Converter -->
 
-The **Output Voltage Sensing Circuit** is an important part of the closed-loop Buck Converter. It monitors the converter output and generates a **feedback signal** that can be used to regulate the output voltage.
+---
 
-### 🔧 Key Design Highlights
+## 🔌 1. Buck Main Circuit
 
-* 🔹 **Voltage Divider Network** — Resistors **R20, R18 and R21** scale the Buck output voltage to a suitable sensing level.
-* 🔹 **Error Amplifier (LF347)** — Compares the sensed output voltage with the reference/feedback signal.
-* 🔹 **Feedback Network** — **R17, R19 and R22** provide the required feedback path around the op-amp.
-* 🔹 **Protection Components** — **D4, D5, D8 and D9** are included for voltage protection/clamping.
-* 🔹 **Dual Supply** — The LF347 is supplied using **+12 V and −12 V** rails.
-* 🔹 **Output Feedback** — The op-amp output provides the control/feedback signal for the closed-loop system.
-* 🔹 **Connectors** — Dedicated connectors are provided for the sensed voltage, supply and output connections.
+The main power stage consists of the switching MOSFET, freewheeling diode, inductor, output capacitors and resistive load.
 
-### ⚙️ Working Principle
+The MOSFET acts as the main switching device. The inductor stores and transfers energy, while the diode provides the current path when the MOSFET is OFF. The output capacitors reduce voltage ripple.
 
-The **Buck output voltage** is first scaled through the resistor network. This reduced voltage is applied to the **LF347 op-amp**, where it is processed through the feedback network.
+### Main Components
 
-The resulting error/control signal is used by the closed-loop control system to adjust the switching operation of the converter, helping maintain the desired output voltage.
+- MOSFET
+- Diode
+- Inductor
+- Capacitors
+- Resistors
+- Heat Sink
+- Input/Output Connectors
 
-### 📐 Voltage Sensing Circuit
+<!-- Add image here: Buck Main Circuit -->
 
-*The designed output-voltage sensing and feedback circuit is shown below.*
+---
 
-<img width="1297" height="790" alt="Screenshot 2026-08-21 233125" src="https://github.com/user-attachments/assets/a1e65b9d-53df-4e0b-b40f-4d972ed57ecb" />
+## 📏 2. Output Voltage Sensing & Feedback
 
+The output voltage is measured using a **resistor-divider network**. The sensed voltage is scaled down and provided to the feedback/control section.
 
+The feedback circuit continuously monitors the output and helps maintain the required output voltage by controlling the switching duty cycle.
+
+<!-- Add image here: Output Voltage Sensing Circuit -->
+
+---
+
+## ⚙️ 3. Gate Driver Circuit
+
+The gate-driver section provides the required gate-driving signal for the power MOSFET.
+
+It provides electrical isolation and suitable drive conditions between the PWM control signal and the MOSFET gate, allowing reliable high-frequency switching.
+
+<!-- Add image here: Gate Driver Circuit -->
+
+---
+
+## 🖥️ 4. PCB Design
+
+The complete Buck Converter hardware was implemented on a **custom-designed PCB**.
+
+The PCB layout includes the power stage, switching device, inductor, filtering components, sensing section, driver circuit and required connectors. Proper routing was used for the power and control sections.
+
+<!-- Add image here: PCB Design / PCB Layout -->
+
+---
+
+## 🧩 5. Hardware Implementation
+
+The designed circuit was physically assembled and tested as a hardware prototype.
+
+The final setup integrates the **power stage, feedback sensing, gate driver and PCB**, forming a complete closed-loop Buck Converter system.
+
+<!-- Add image here: Final Hardware / PCB Photograph -->
+
+---
+
+## 📋 Component Overview
+
+| Component | Purpose |
+|---|---|
+| MOSFET | High-frequency switching |
+| Diode | Freewheeling current path |
+| Inductor | Energy storage and current smoothing |
+| Capacitors | Filtering and ripple reduction |
+| Resistors | Voltage sensing and circuit control |
+| Optocoupler | Signal isolation |
+| Heat Sink | MOSFET thermal management |
+| Connectors | Input, output and signal connections |
+
+---
+
+## 📐 Key Formula
+
+For an ideal Buck Converter:
+
+\[
+\boxed{V_{out}=D\,V_{in}}
+\]
+
+Therefore,
+
+\[
+\boxed{D=\frac{V_{out}}{V_{in}}}
+\]
+
+where \(D\) represents the PWM duty cycle.
+
+---
+
+## ✅ Conclusion
+
+A complete **closed-loop DC-DC Buck Converter** was successfully designed and implemented as a hardware project.
+
+The project involved the design of the **power stage, output voltage sensing, gate-driver circuit and custom PCB**, providing practical experience in power electronics, switching converters, feedback control and PCB design.
 
 
