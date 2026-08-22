@@ -124,3 +124,6 @@ A complete **closed-loop DC-DC Buck Converter** was successfully designed and im
 The project involved the design of the **power stage, output voltage sensing, gate-driver circuit and custom PCB**, providing practical experience in power electronics, switching converters, feedback control and PCB design.
 
 
+<!-- Failed to upload "whatsapp-video-2026-08-21-at-111043-pm_wb68g3rv.mp4" -->
+
+
