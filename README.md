@@ -116,6 +116,23 @@ The final setup integrates the **power stage, feedback sensing, gate driver and 
 | Connectors | Input, output and signal connections |
 
 ---
+📊 Results & Observations
+
+The closed-loop Buck Converter was tested for the designed operating conditions. The measured output voltage and inductor current were observed using an oscilloscope.
+
+For a 30 V input and 0.75 duty ratio, the theoretical output voltage is 22.5 V, while the measured output voltage was approximately 21.4 V. The observed inductor current was approximately 424 mA, confirming the expected continuous-conduction operation.
+
+The practical results show that the converter successfully steps down the input voltage and maintains a stable output through the feedback-based control system.
+
+<img width="1022" height="693" alt="Screenshot 2026-08-22 093023" src="https://github.com/user-attachments/assets/e2ebafca-0a80-4d4f-94ba-c6b1df2eaca4" />
+<img width="1001" height="622" alt="Screenshot 2026-08-22 093036" src="https://github.com/user-attachments/assets/e50fe860-dbab-48b8-9472-1c3ed1a8d9b2" />
+
+---
+🎥 Demo Video
+
+The working demonstration of the Closed-Loop Buck Converter is shown in the project demo video.
+
+Demo: 
 
 ## ✅ Conclusion
 
