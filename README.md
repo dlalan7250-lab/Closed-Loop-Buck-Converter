@@ -132,7 +132,7 @@ The practical results show that the converter successfully steps down the input 
 
 The working demonstration of the Closed-Loop Buck Converter is shown in the project demo video.
 
-Demo: "C:\Users\HP\Downloads\whatsapp-video-2026-08-21-at-111043-pm_aFm9mGvO.mp4"
+Demo: C:\Users\HP\Downloads\whatsapp-video-2026-08-21-at-111043-pm_aFm9mGvO.mp4
 
 ## ✅ Conclusion
 
